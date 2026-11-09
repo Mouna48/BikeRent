@@ -29,4 +29,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+        // A user can have many bookings
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
 }
