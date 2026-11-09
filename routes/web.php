@@ -1,12 +1,13 @@
 <?php
-
+use App\Http\Controllers\BikeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Página principal o catálogo público de bicicletas
+Route::get('/', [BikeController::class, 'index'])->name('bikes.index');
 
+// Ver los detalles de una bicicleta específica
+Route::get('/bikes/{bike}', [BikeController::class, 'show'])->name('bikes.show');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
