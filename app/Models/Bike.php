@@ -14,4 +14,9 @@ class Bike extends Model
 
 
     ];
+     // A bike can have many bookings
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
 }
